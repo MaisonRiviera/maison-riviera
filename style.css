@@ -1,6 +1,7 @@
 :root {
     --background-color: #f5f0e9;
     --text-color: #c4561f;
+    --welcome-opening-gap: clamp(12px, 2vw, 10px);
 }
 
 /* Söhne Breit — titres */
@@ -108,7 +109,8 @@ header {
 
 main {
     display: grid;
-    gap: clamp(12px, 2vw, 24px);
+    /* Modifiez cette variable pour régler l'écart entre les deux textes. */
+    gap: var(--welcome-opening-gap);
     width: min(100%, 1200px);
     text-align: center;
 }
