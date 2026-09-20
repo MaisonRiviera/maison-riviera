@@ -8,6 +8,7 @@
 </head>
 <body class="artist-page">
     <header>
+        <div class="site-header-inner">
         <a href="index.html" class="logo-link" aria-label="Maison Riviera — Accueil">
             <svg class="logo" aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" width="62.0952" height="73.1478" viewBox="0 0 62.0952 73.1478" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g>
@@ -24,29 +25,18 @@
             <a href="index.html">ACCUEIL</a>
             <a href="artiste.html" aria-current="page">ARTISTE</a>
         </nav>
+        </div>
     </header>
 
     <main class="artist-main" id="contenu">
         <article class="artist-card" aria-labelledby="artist-name">
-            <h1 id="artist-name"><button type="button" class="press-kit-trigger" aria-haspopup="dialog" aria-controls="press-kit-dialog">PRESS KIT LEGALY</button></h1>
-            <div class="artist-portrait">
-                <img src="WhatsApp%20Image%202026-04-29%20at%2014.47.05%20(2).jpeg"
+            <h1 id="artist-name"><a class="press-kit-trigger" href="PRESS%20KIT%20LEGALY.pdf">PRESS KIT LEGALY</a></h1>
+            <a class="artist-portrait" href="PRESS%20KIT%20LEGALY.pdf" aria-label="Ouvrir le press kit de LEGALY (PDF)">
+                <img src="LEGALY.jpeg"
                      alt="LEGALY ajustant ses lunettes de soleil, en veste claire sous un éclairage violet."
                      width="2880" height="5120">
-            </div>
+            </a>
         </article>
     </main>
-    <dialog id="press-kit-dialog" class="press-kit-dialog" role="dialog" aria-modal="true" aria-labelledby="press-kit-title">
-        <div class="press-kit-toolbar">
-            <h2 id="press-kit-title">PRESS KIT LEGALY</h2>
-            <button type="button" class="press-kit-close" aria-label="Fermer le press kit" autofocus>×</button>
-        </div>
-        <div class="press-kit-content" aria-busy="false">
-            <p class="press-kit-status" role="status"></p>
-            <div class="press-kit-viewer" role="region" aria-label="Pages du press kit de LEGALY" tabindex="0" hidden></div>
-        </div>
-    </dialog>
-    <script src="assets/press-kit/pages.js" defer></script>
-    <script src="script.js" defer></script>
 </body>
 </html>
