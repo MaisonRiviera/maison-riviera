@@ -2,6 +2,16 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <!-- GA4 : raccorder la CMP avant publication (voir ANALYTICS.md). -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PL722ZNS5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        // La CMP devra définir le consentement avant les commandes js/config.
+        gtag('js', new Date());
+        gtag('config', 'G-8PL722ZNS5');
+    </script>
+    <script defer src="assets/analytics.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maison Riviera</title>
 
@@ -25,7 +35,7 @@
         </a>
         <nav class="header-nav" aria-label="Navigation principale">
             <a href="index.html" aria-current="page">ACCUEIL</a>
-            <a href="artiste.html">ARTISTE</a>
+            <a href="artiste.html" data-analytics-event="click_artiste">ARTISTE</a>
         </nav>
         </div>
     </header>

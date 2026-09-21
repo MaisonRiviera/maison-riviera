@@ -2,6 +2,16 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <!-- GA4 : raccorder la CMP avant publication (voir ANALYTICS.md). -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PL722ZNS5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        // La CMP devra définir le consentement avant les commandes js/config.
+        gtag('js', new Date());
+        gtag('config', 'G-8PL722ZNS5');
+    </script>
+    <script defer src="assets/analytics.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artiste — Maison Riviera</title>
     <link rel="stylesheet" href="style.css">
@@ -22,7 +32,7 @@
 </svg>
         </a>
         <nav class="header-nav" aria-label="Navigation principale">
-            <a href="index.html">ACCUEIL</a>
+            <a href="index.html" data-analytics-event="click_home">ACCUEIL</a>
             <a href="artiste.html" aria-current="page">ARTISTE</a>
         </nav>
         </div>
@@ -30,8 +40,8 @@
 
     <main class="artist-main" id="contenu">
         <article class="artist-card" aria-labelledby="artist-name">
-            <h1 id="artist-name"><a class="press-kit-trigger" href="./press-kit-legaly.pdf">PRESS KIT LEGALY</a></h1>
-            <a class="artist-portrait" href="./press-kit-legaly.pdf" aria-label="Ouvrir le press kit de LEGALY (PDF)">
+            <h1 id="artist-name"><a class="press-kit-trigger" href="./press-kit-legaly.pdf" data-analytics-event="open_press_kit" data-click-source="text">PRESS KIT LEGALY</a></h1>
+            <a class="artist-portrait" href="./press-kit-legaly.pdf" aria-label="Ouvrir le press kit de LEGALY (PDF)" data-analytics-event="open_press_kit" data-click-source="image">
                 <img src="LEGALY.jpeg"
                      alt="LEGALY ajustant ses lunettes de soleil, en veste claire sous un éclairage violet."
                      width="2880" height="5120">
