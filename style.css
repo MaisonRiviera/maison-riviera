@@ -108,6 +108,7 @@ h1 span { display: block; }
     transition: border-color 180ms ease;
 }
 .field textarea { height: 3.15em; resize: none; overflow-y: auto; }
+#contact-form #project { resize: vertical; }
 .field input:not(:placeholder-shown), .field textarea:not(:placeholder-shown) { border-bottom-color: transparent; }
 .field input:focus-visible:placeholder-shown, .field textarea:focus-visible:placeholder-shown { border-bottom-color: var(--orange); }
 .field input:autofill { -webkit-text-fill-color: var(--orange); }
@@ -118,9 +119,9 @@ h1 span { display: block; }
 .form-status:not(:empty) { margin-top: 16px; }
 .contact-details { display: flex; flex-direction: column; align-items: flex-end; font-style: normal; gap: .2em; font-size: clamp(1rem, 1.45vw, 1.75rem); }
 .contact-details > a { max-width: 100%; overflow-wrap: anywhere; }
-.site-footer { margin: 0 var(--gutter); border-top: 1px solid var(--black); padding: 2.8vw 0 3.5vw; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: clamp(.9375rem, 1.05vw, 1.125rem); }
-.site-footer a { display: grid; place-items: center; min-width: 44px; min-height: 44px; margin-left: -8px; }
-.site-footer a img { width: 25px; height: 25px; }
+.site-footer { margin: 0 var(--gutter); border-top: 1px solid var(--black); padding-inline: 0; padding-block: clamp(24px, 4svh, 52px); display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: clamp(1rem, 1.25vw, 1.25rem); line-height: 1.25; }
+.site-footer a { display: grid; place-items: center; min-width: 44px; min-height: 22px; margin-left: -8px; }
+.site-footer a img { width: 20px; height: 20px; }
 @media (hover: hover) and (pointer: fine) {
     .portrait:hover img { transform: scale(1.05); }
     .press-kit:hover { transform: scale(1.05); }
@@ -164,7 +165,6 @@ h1 span { display: block; }
 
 
     .contact-details { font-size: clamp(1rem, 3.8vw, 1.125rem); }
-    .site-footer { padding-top: 20px; padding-bottom: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
