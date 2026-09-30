@@ -1,15 +1,15 @@
 # Analytics Maison Riviera — intégration locale
 
-Les deux pages publiques, `index.html` et `artiste.html`, chargent une fois la balise officielle gtag.js pour `G-8PL722ZNS5`, en tête du head après l'encodage. Le domaine googletagmanager.com héberge aussi gtag.js : aucun conteneur Google Tag Manager n'est utilisé. `assets/analytics.js` observe uniquement les liens annotés.
+La page unique `index.html` charge une fois la balise officielle gtag.js pour `G-8PL722ZNS5`, en tête du head après l'encodage. Le domaine googletagmanager.com héberge aussi gtag.js : aucun conteneur Google Tag Manager n'est utilisé. `assets/analytics.js` observe uniquement les liens annotés.
 
 | Interaction | Événement | Paramètres |
 | --- | --- | --- |
-| ARTISTE sur l'accueil | `click_artiste` | `source_page: home`, `destination: artiste` |
-| ACCUEIL sur la page artiste | `click_home` | `source_page: artiste`, `destination: home` |
+| ARTISTE sur l'accueil | `click_artiste` | `source_page: one-page`, `destination: artiste` |
+| ACCUEIL dans la navigation | `click_home` | `source_page: one-page`, `destination: home` |
 | Texte du Press Kit | `open_press_kit` | `click_source: text`, `artist: legaly` |
 | Photo du Press Kit | `open_press_kit` | `click_source: image`, `artist: legaly` |
 
-Le logo n'est pas instrumenté. Aucun lien de plateforme externe n'existe actuellement, donc aucun événement `click_external` n'est ajouté.
+Le logo n'est pas instrumenté. Les liens Instagram ne déclenchent pas d’événement personnalisé supplémentaire. `artiste.html` redirige vers `index.html#artiste` pour conserver les anciens liens sans doubler la balise GA4.
 
 Les href, cibles et comportements natifs des liens sont conservés. Aucun preventDefault, temporisateur, callback de navigation ni lecteur PDF n'est ajouté. Un clic est enregistré sans attendre l'envoi réseau. En cas de blocage de GA4 ou de départ très rapide, la réception d'un événement n'est pas garantie ; la navigation reste prioritaire.
 
@@ -27,7 +27,7 @@ Les href, cibles et comportements natifs des liens sont conservés. Aucun preven
 
 Choisir et intégrer une CMP avec une interface validée. Pour un Consent Mode basique, bloquer le chargement du script distant et les commandes js/config/event avant accord ; ne pas mettre en attente les clics antérieurs au consentement pour les rejouer ensuite. La CMP doit réappliquer le choix sur chaque page, permettre refus et retrait et gérer les cookies existants lors du retrait.
 
-Le point d'intégration est le bloc GA4 isolé dans chaque head et l'appel unique à gtag dans `assets/analytics.js`. Avant toute commande de mesure, la CMP devra initialiser les états Consent Mode (`analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization`) à `denied`, puis transmettre les choix réels via `gtag('consent', 'update', ...)`. Ne pas accorder les finalités publicitaires sur la base du seul accord à la mesure d'audience. En mode basique, maintenir aussi les scripts Google bloqués avant accord : le seul état denied n'empêche pas tous les envois en mode avancé.
+Le point d'intégration est le bloc GA4 isolé dans le head de `index.html` et l'appel unique à gtag dans `assets/analytics.js`. Avant toute commande de mesure, la CMP devra initialiser les états Consent Mode (`analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization`) à `denied`, puis transmettre les choix réels via `gtag('consent', 'update', ...)`. Ne pas accorder les finalités publicitaires sur la base du seul accord à la mesure d'audience. En mode basique, maintenir aussi les scripts Google bloqués avant accord : le seul état denied n'empêche pas tous les envois en mode avancé.
 
 Compléter l'information de confidentialité (finalités, destinataires, cookies, durées de conservation, transferts et garanties applicables, droits et retrait), vérifier les paramètres de conservation et de partage dans GA4, puis tester accord/refus/retrait et changements de page. Ces points nécessitent une validation adaptée au site ; Consent Mode ne recueille pas lui-même le consentement.
 

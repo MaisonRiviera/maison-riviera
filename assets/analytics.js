@@ -11,9 +11,9 @@
         var name = link.dataset.analyticsEvent;
         var parameters;
         if (name === 'click_artiste') {
-            parameters = { source_page: 'home', destination: 'artiste' };
+            parameters = { source_page: 'one-page', destination: 'artiste' };
         } else if (name === 'click_home') {
-            parameters = { source_page: 'artiste', destination: 'home' };
+            parameters = { source_page: 'one-page', destination: 'home' };
         } else if (name === 'open_press_kit') {
             parameters = { click_source: link.dataset.clickSource, artist: 'legaly' };
         } else {
